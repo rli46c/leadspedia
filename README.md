@@ -9,6 +9,7 @@ LeadsPedia in MERN
 ## GitHub Commands:
 1.) First Time - Clone Single Branch: 
     <!-- directory address [/your/folder] is optional -->
+    
     git clone https://github.com/rli46c/mernleadspedia.git -b alpha --single-branch /your/folder
 
 2.) First Time - Update Config
