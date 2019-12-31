@@ -18,12 +18,16 @@ LeadsPedia in MERN
     git config --global user.name "Your Name"
 
 3.) Everytime - Add your changes and commit them
+
     <!-- Here . or all can be used to add all files. You can also add specific files/folders -->
+    
     git add .
     git commit -m "Message"
 
 4.) Everytime - Pull Further Changes: git pull
+
 5.) Everytime - Push Further Changes: git push
+
 
 
 
