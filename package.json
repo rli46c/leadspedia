@@ -1,0 +1,39 @@
+{
+  "name": "leadspedia",
+  "version": "1.0.0",
+  "description": "LeadsPedia in MERN",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "client-install": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rli46c/leadspedia.git"
+  },
+  "keywords": [
+    "Vertical",
+    "Affiliate",
+    "Advertiser",
+    "Offer",
+    "Contract",
+    "Campaign"
+  ],
+  "author": "Vinayak Sharma",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/rli46c/leadspedia/issues"
+  },
+  "homepage": "https://github.com/rli46c/leadspedia#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
+}
