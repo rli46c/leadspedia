@@ -30,7 +30,9 @@
   },
   "homepage": "https://github.com/rli46c/leadspedia#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "config": "^3.2.4",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.3"
   },
   "devDependencies": {
     "concurrently": "^5.0.2",
