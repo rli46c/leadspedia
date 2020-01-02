@@ -52,8 +52,4 @@ LeadsPedia in MERN
     git stash pop
 
 ### Push to Link
-    git push origin HEAD:origin/alpha    
-
-
-### Testing an update push from Rajan Sir Account
-    This is test string.... Delete it
+    git push origin HEAD:origin/alpha
