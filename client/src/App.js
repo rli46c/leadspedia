@@ -8,6 +8,7 @@ import store from './store';
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/register' component={Register} />
             </Switch>
           </div>
         </div>

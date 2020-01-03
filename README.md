@@ -23,9 +23,11 @@ LeadsPedia in MERN
     git add .
     git commit -m "Message"
 
-4.) Everytime - Pull Further Changes: git pull
+4.) Everytime - git status
 
-5.) Everytime - Push Further Changes: git push
+5.) Everytime [As per status] - Pull Further Changes: git pull
+
+6.) Everytime [As per status] - Push Further Changes: git push
 
 
 

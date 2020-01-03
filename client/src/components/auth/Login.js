@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {loginUser} from '../../actions/auth/authAction';
+import { loginUser } from '../../actions/auth/authAction';
 
 export const Login = ({auth: {loginStatus, loginErrors}, loginUser}) => {
 
@@ -15,8 +16,9 @@ export const Login = ({auth: {loginStatus, loginErrors}, loginUser}) => {
     return (
         <div>
             <h3>Login From Here</h3>
-        </div>
-    )
+            <Link to="/register">Register here</Link>
+        </div>  
+    );
 };
 
 Login.propTypes = {

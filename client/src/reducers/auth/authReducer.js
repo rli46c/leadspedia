@@ -5,8 +5,8 @@ import {
 } from '../../actions/types';
 
 const initialState = {
-    loginStatus : null,
-    loginErrors : []
+    loginStatus: null,
+    loginErrors: []
 };
 
 export default (state = initialState, action) => {

@@ -19,3 +19,7 @@ export const loginUser = () => async (dispatch) => {
         });
     }
 };
+
+export const registerUser = (userData) => async (dispatch) => {
+    console.log(userData);    
+};

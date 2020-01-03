@@ -4,8 +4,7 @@ const Users = require('../../../models/Users');
 
 router.get('/', async (req, res) => {
     try {
-        const usersData = await Users.find({});
-        // usersData.push({userName: "Vinayak", userPass: "sharma252"});        
+        const usersData = await Users.find({});       
         res.status(200).json(usersData);
     } catch (err) {
         console.error(err.message);
