@@ -9,15 +9,15 @@ router.post('/', async (req, res) => {
        
         if (user) {
             if (user.lpUserPass === userPass) {
-                res.json({isAuthenticated: "true"})
+                res.status(200).json({'isAuthenticated': true});
             } else {
-                res.send('Not Authenticated')
+                res.status(400).send('Not Authenticated');
             }
         } else {
-            res.send('Invalid User')
+            res.status(400).send('Invalid User');
         }
     } catch (err) {
-        
+        res.status(500).send('Server Error');
     }    
 });
 

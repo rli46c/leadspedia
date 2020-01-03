@@ -16,7 +16,6 @@ export const loginUser = (loginData) => async (dispatch) => {
 
     try {     
         const res = await axios.post('/api/auth/login', loginData, config);
-        console.log(res);
         
         dispatch({
             type: LOGIN,

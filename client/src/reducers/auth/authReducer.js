@@ -7,7 +7,7 @@ import {
 } from '../../actions/types';
 
 const initialState = {
-    isAuthenticated: {},
+    isAuthenticated: false,
     loginErrors: [],
     regStatus: {},
     regSuccess: false,
@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state,
-                loginStatus: action.payload
+                isAuthenticated: action.payload.isAuthenticated
             };
         case LOGIN_ERRORS:
             return {
