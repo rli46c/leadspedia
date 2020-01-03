@@ -2,13 +2,15 @@ import {
     LOGIN,
     LOGIN_ERRORS,
     REG_USER,
-    REG_ERRORS
+    REG_ERRORS,
+    SET_REGISTERED
 } from '../../actions/types';
 
 const initialState = {
-    loginStatus: {},
+    isAuthenticated: {},
     loginErrors: [],
     regStatus: {},
+    regSuccess: false,
     regErrors: []
 };
 
@@ -29,6 +31,11 @@ export default (state = initialState, action) => {
                 ...state,
                 regStatus: action.payload
             };
+        case SET_REGISTERED:
+            return {
+                ...state,
+                regSuccess: true
+            }
         case REG_ERRORS:
             return {
                 ...state,

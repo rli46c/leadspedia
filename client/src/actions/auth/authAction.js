@@ -1,14 +1,23 @@
 import {
-    LOGIN,
-    LOGIN_ERRORS,
     REG_USER,
-    REG_ERRORS
+    REG_ERRORS,
+    SET_REGISTERED,
+    LOGIN,
+    LOGIN_ERRORS
 } from '../types';
 import axios from 'axios';
 
-export const loginUser = () => async (dispatch) => {
-    try {
-        const res = await axios.get('/api/auth/login');
+export const loginUser = (loginData) => async (dispatch) => {
+    const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    };
+
+    try {     
+        const res = await axios.post('/api/auth/login', loginData, config);
+        console.log(res);
+        
         dispatch({
             type: LOGIN,
             payload: res.data
@@ -28,8 +37,10 @@ export const registerUser = (userData) => async (dispatch) => {
         }
     };
     try {
-        // userData = JSON.stringify(userData);
+        userData = JSON.stringify(userData);
         const res = await axios.post('/api/auth/register', userData, config);
+
+        dispatch({ type: SET_REGISTERED });
 
         dispatch({
             type: REG_USER,
