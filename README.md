@@ -55,3 +55,11 @@ LeadsPedia in MERN
 
 ### Push to Link
     git push origin HEAD:origin/alpha
+
+
+## Kill PORTS in UBUNTU (3000|5000)
+sudo kill -9 `sudo lsof -t -i:3000`
+
+<!-- If that doesn't work you could also use $() for command interpolation: -->
+
+sudo kill -9 $(sudo lsof -t -i:3000)
