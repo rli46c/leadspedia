@@ -8,3 +8,8 @@ export const SET_REGISTERED = 'SET_REGISTERED';
 
 // Types for Layout/Navbar
 export const NAV_TITLE = 'NAV_TITLE';
+
+// Types for Email
+export const SEND_MAIL = 'SEND_MAIL';
+export const MAIL_ERRORS = 'MAIL_ERRORS';
+export const RESET_MAIL_STATUS = 'RESET_MAIL_STATUS';
