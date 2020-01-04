@@ -12,6 +12,7 @@ app.use(express.json({ extended: false }));
 
 app.use('/api/auth/login', require('./routes/api/auth/login'));
 app.use('/api/auth/register', require('./routes/api/auth/register'));
+app.use('/api/common/csvxlsxtodb', require('./routes/api/common/csv-xlsx_db'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
