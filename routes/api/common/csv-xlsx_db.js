@@ -1,24 +1,26 @@
 const express = require('express');
-const fileUpload = require('express-fileupload');
 const xlsx = require('xlsx');
+const Leads = require('../../../models/Leads');
+
+
 
 const router = express.Router();
-router.use(fileUpload());
 
-router.post('/', (req, res) => {
-    if (req.files === null) {
-        return res.status(400).json({msg: 'No File Uploaded...'});
-    }
+router.post('/', async (req, res) => {
+    const wb = xlsx.readFile(`${__dirname}/../../../client/public/uploads/${req.body.uploadedFileName}`);
+    const ws = wb.Sheets[wb.SheetNames[0]];
+    const jsonData = xlsx.utils.sheet_to_json(ws);
 
-    const file = req.files.file;
+    jsonData.forEach((rowData) => rowData.fileId = req.body.uploadedFileName);
 
-    file.mv(`${__dirname}/../../../client/public/uploads/${file.name}`, (err) => {
+    await Leads.insertMany(jsonData, (err, docs) => {
         if (err) {
             console.error(err);
-            return res.status(500).send(err);
+            return res.status(500).send('Server Error');
+        } else {
+            console.log("Multiple documents inserted to Collection");
+            return res.status(200).json(docs);
         }
-
-        return res.status(200).json({msg: `File <${file.name}> Uploaded Successfully...`});
     });
 });
 

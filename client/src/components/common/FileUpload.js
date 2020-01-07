@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { fileUpload, xlsxToDB } from '../../actions/common/fileAction';
 
-export const FileUpload = ({}) => {
+export const FileUpload = ({file: { fileUploadStatus, uploadedFileName }, fileUpload, xlsxToDB}) => {
 
     const [file, setFile] = useState('');
     const [filename, setFilename] = useState('Choose file...');
@@ -22,21 +23,16 @@ export const FileUpload = ({}) => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const config = {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }
-
-        try {
-            const res = await axios.post('/api/common/csvxlsxtodb', formData, config);
-            console.log(JSON.stringify(res.data.msg));
-            
-        } catch (err) {
-            console.log(JSON.stringify(err));
-        }
-
+        fileUpload(formData);
     };
+
+    const onPopulate = async () => {
+        if (fileUploadStatus) {
+            xlsxToDB(uploadedFileName);
+        } else {
+            alert('Upload file first..');
+        }
+    }
 
     return (
         <form onSubmit={onSubmit}>
@@ -44,21 +40,25 @@ export const FileUpload = ({}) => {
                 <input type="file" name="csvxlsxfileupload" id="csvxlsxfileupload" className="custom-file-input" onChange={onChange} />
                 <label className="custom-file-label" htmlFor="csvxlsxfileupload">{ filename }</label>
                 <input type="submit" value="Upload CSV/XLSX file" className="btn btn-primary btn-block mt-4" />
+                <button className="btn btn-danger btn-block mt-4" onClick={ onPopulate }>Populate Database</button>
             </div>
         </form>
     );
 };
 
 FileUpload.propTypes = {
-    // prop: PropTypes
+    file: PropTypes.object.isRequired,
+    fileUpload: PropTypes.func.isRequired,
+    xlsxToDB: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-    
+    file: state.file
 });
 
 const mapDispatchToProps = {
-    
+    fileUpload,
+    xlsxToDB
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FileUpload);

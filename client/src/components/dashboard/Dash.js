@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileUpload from '../common/FileUpload';
 import SendMail from '../common/SendMail';
+import DataTable from '../dashboard/leads/DataTable';
 
 export const Dash = ({}) => {
 
@@ -32,7 +33,7 @@ export const Dash = ({}) => {
             </div>
             <div className="row">
                 <div className="col-md-12">
-
+                    <DataTable />
                 </div>
             </div>
         </Fragment>
