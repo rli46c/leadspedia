@@ -3,7 +3,7 @@ LeadsPedia in MERN
 
 # Install and Run Project
     npm install
-    npm client-insall
+    npm run client-install
     npm run dev
 
 ## GitHub Commands:
