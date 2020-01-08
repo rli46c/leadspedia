@@ -1,5 +1,6 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
+const uuidv1 = require('uuid/v1');
 
 const router = express.Router();
 router.use(fileUpload());
@@ -10,14 +11,15 @@ router.post('/', (req, res) => {
     }
 
     const file = req.files.file;
+    const uniqueFileName = uuidv1();
 
-    file.mv(`${__dirname}/../../../client/public/uploads/${file.name}`, (err) => {
+    file.mv(`${__dirname}/../../../client/public/uploads/${uniqueFileName}`, (err) => {
         if (err) {
             console.error(err);
             return res.status(500).send(err);
         }
 
-        return res.status(200).json({msg: `File <${file.name}> Uploaded Successfully...`, fileName: file.name});
+        return res.status(200).json({ msg: `File <${file.name}> Uploaded Successfully...`, fileName: uniqueFileName });
     });
 });
 

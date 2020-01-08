@@ -21,4 +21,7 @@ export const XLSX_DB = 'XLSX_DB';
 
 // Leads Handling
 export const GET_LEADS = 'GET_LEADS';
+export const DELETE_LEAD = 'DELETE_LEAD';
+export const SET_CURRENT_LEAD = 'SET_CURRENT_LEAD';
+export const UPDATE_LEAD = 'UPDATE_LEAD';
 export const LEAD_ERRORS = 'LEAD_ERRORS';

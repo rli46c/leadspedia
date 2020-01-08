@@ -24,6 +24,7 @@ export const FileUpload = ({file: { fileUploadStatus, uploadedFileName }, fileUp
         formData.append('file', file);
 
         fileUpload(formData);
+        setFilename('Choose file...');
     };
 
     const onPopulate = async () => {
@@ -40,8 +41,8 @@ export const FileUpload = ({file: { fileUploadStatus, uploadedFileName }, fileUp
                 <input type="file" name="csvxlsxfileupload" id="csvxlsxfileupload" className="custom-file-input" onChange={onChange} />
                 <label className="custom-file-label" htmlFor="csvxlsxfileupload">{ filename }</label>
                 <input type="submit" value="Upload CSV/XLSX file" className="btn btn-primary btn-block mt-4" />
-                <button className="btn btn-danger btn-block mt-4" onClick={ onPopulate }>Populate Database</button>
             </div>
+            <button className="btn btn-danger btn-block mt-4" onClick={ onPopulate }>Populate Database</button>
         </form>
     );
 };

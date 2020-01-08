@@ -20,7 +20,8 @@ export const DataTable = ({ leads: { leadsData, leadsError }, getAllLeads }) => 
         <table className="table mt-4">
             <thead>
                 <tr>
-                    {keyArray.map(key => <th key={key}>{key}</th>)}
+                    { keyArray.map(key => !(key in { _id: '_id', __v: '__v', fileId: 'fileId' }) ? <th key={key}>{key.toUpperCase()}</th> : null) }
+                    <th colSpan='2'>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
