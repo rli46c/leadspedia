@@ -30,11 +30,11 @@ export const fileUpload = (formData) => {
     }
 };
 
-export const xlsxToDB = (uploadedFileName) => {
+export const xlsxToDB = (fileAttribs) => {
     return async (dispatch) => {
         try {
             const config = { headers: { 'Content-Type': 'application/json' } }
-            const res = await axios.post('/api/common/csvxlsxtodb', {uploadedFileName}, config);
+            const res = await axios.post('/api/common/csvxlsxtodb', fileAttribs, config);
             dispatch({
                 type: XLSX_DB,
                 payload: res.data

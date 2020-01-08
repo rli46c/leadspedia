@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fileUpload, xlsxToDB } from '../../actions/common/fileAction';
 
-export const FileUpload = ({file: { fileUploadStatus, uploadedFileName }, fileUpload, xlsxToDB}) => {
+export const FileUpload = ({file: { fileUploadStatus, uniqUpldedFileName }, fileUpload, xlsxToDB}) => {
 
     const [file, setFile] = useState('');
     const [filename, setFilename] = useState('Choose file...');
@@ -29,7 +29,7 @@ export const FileUpload = ({file: { fileUploadStatus, uploadedFileName }, fileUp
 
     const onPopulate = async () => {
         if (fileUploadStatus) {
-            xlsxToDB(uploadedFileName);
+            xlsxToDB({uniqUpldedFileName});
         } else {
             alert('Upload file first..');
         }

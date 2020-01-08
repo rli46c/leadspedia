@@ -1,6 +1,8 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
-const uuidv1 = require('uuid/v1');
+const fileSystem = require('fs');
+// const uuidv1 = require('uuid/v1');
+const shortid = require('shortid');
 
 const router = express.Router();
 router.use(fileUpload());
@@ -11,15 +13,23 @@ router.post('/', (req, res) => {
     }
 
     const file = req.files.file;
-    const uniqueFileName = uuidv1();
+    // const uploadedFileName = file.name;
+    // const uniqueFolderName = uuidv1();
+    const uniqUpldedFileName = shortid.generate();
+    const publicFolder = `${__dirname}/../../../client/public`;
 
-    file.mv(`${__dirname}/../../../client/public/uploads/${uniqueFileName}`, (err) => {
+    // Create uploads folder in public if not exists
+    if(!fileSystem.existsSync(`${publicFolder}/uploads`)) {
+        fileSystem.mkdirSync(`${publicFolder}/uploads`);
+    }
+
+    file.mv(`${publicFolder}/uploads/${uniqUpldedFileName}`, (err) => {
         if (err) {
             console.error(err);
             return res.status(500).send(err);
         }
 
-        return res.status(200).json({ msg: `File <${file.name}> Uploaded Successfully...`, fileName: uniqueFileName });
+        return res.status(200).json({ msg: `File <${file.name}> Uploaded Successfully...`, uniqUpldedFileName });
     });
 });
 

@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     fileUploadStatus: false,
-    uploadedFileName: '',
+    uniqUpldedFileName: '',
     uploadedData: [],
     fileUploadErrors: []
 }
@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 fileUploadStatus: true,
-                uploadedFileName: action.payload.fileName
+                uniqUpldedFileName: action.payload.uniqUpldedFileName
             };
 
         case FILE_ERRORS:
