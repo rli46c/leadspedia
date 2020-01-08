@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getAllLeads } from '../../../actions/dashboard/leadsAction';
 import TableRow from './TableRow';
 
-export const DataTable = ({ leads: { leadsData, leadsError }, getAllLeads }) => {
+export const DataTable = ({ leads: { leadsData, leadsError }, file: {uploadedData}, getAllLeads }) => {
 
     useEffect(() => {
         getAllLeads();
@@ -14,8 +14,12 @@ export const DataTable = ({ leads: { leadsData, leadsError }, getAllLeads }) => 
 
     if (leadsData.length > 0) {
         keyArray = Object.keys(leadsData[0]);
-    }
-
+    } else if (uploadedData.length > 0) {
+        keyArray = Object.keys(uploadedData[0]);
+    } else {
+        keyArray = ['VERTICAL', 'AFFILIATE', 'ADVERTISER', 'PROPOSAL'];
+    }  
+    
     return (
         <table className="table mt-4">
             <thead>
@@ -25,7 +29,8 @@ export const DataTable = ({ leads: { leadsData, leadsError }, getAllLeads }) => 
                 </tr>
             </thead>
             <tbody>
-                {leadsData && leadsData.map(rowData => <TableRow keyArray={keyArray} rowData={rowData} key={rowData._id} />)}
+                {leadsData.length > 0 && leadsData.map(rowData => <TableRow keyArray={keyArray} rowData={rowData} key={rowData._id} />)}
+                {uploadedData.length > 0 && uploadedData.map(rowData => <TableRow keyArray={keyArray} rowData={rowData} key={rowData._id} />)}
             </tbody>
         </table>
     );
@@ -33,11 +38,13 @@ export const DataTable = ({ leads: { leadsData, leadsError }, getAllLeads }) => 
 
 DataTable.propTypes = {
     leads: PropTypes.object.isRequired,
+    file: PropTypes.object.isRequired,
     getAllLeads: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-    leads: state.leads
+    leads: state.leads,
+    file: state.file
 });
 
 const mapDispatchToProps = {

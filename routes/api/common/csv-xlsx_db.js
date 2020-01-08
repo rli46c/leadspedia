@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
                 console.log(`${uniqUpldedFileName} processed successfully!!`);
             });
 
-            console.log("Multiple documents inserted to Collection");
+            console.log("Multiple documents inserted to Collection");           
             return res.status(200).json(docs);
         }
     });

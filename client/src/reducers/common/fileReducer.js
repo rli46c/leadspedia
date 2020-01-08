@@ -1,7 +1,8 @@
 import {
     FILE_UPLOAD,
     FILE_ERRORS,
-    XLSX_DB
+    XLSX_DB,
+    DELETE_LEAD
 } from '../../actions/types';
 
 const initialState = {
@@ -27,11 +28,17 @@ export default (state = initialState, action) => {
                 fileUploadErrors: action.payload
             };
 
-        case XLSX_DB:
+        case XLSX_DB:           
             return {
                 ...state,
-                uploadedData: [...state.uploadedData, action.payload]
+                uploadedData: state.uploadedData.concat(action.payload)
             };
+
+        case DELETE_LEAD:
+            return {
+                ...state,
+                uploadedData: state.uploadedData.filter(lead => lead._id !== action.payload.id)
+            }
     
         default:
             return state;
