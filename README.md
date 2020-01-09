@@ -1,5 +1,6 @@
 # mernleadspedia
-LeadsPedia in MERN
+[LeadsPedia in MERN](https://leadspedia.herokuapp.com/)
+[React docs](https://create-react-app.dev/docs/getting-started)
 
 # Install and Run Project
     npm install
@@ -36,6 +37,11 @@ LeadsPedia in MERN
     sudo kill -9 `sudo lsof -t -i:3000`
 [More on kill process..]
 
+### How to disable source maps for React JS Application
+    "build": "GENERATE_SOURCEMAP=false react-scripts build"
+[Disable SoureceMap - Stackoverflow]
+[Disable SoureceMap -  React Docs]
+
 ## Heroku Post Build script
 Heroku makes it easy to [deploy and scale Node.js applications]. Run any recent version of Node.js. Deploy apps in seconds using dependency caching.
 
@@ -53,3 +59,5 @@ Git: “[Not currently on any branch].” Is there an easy way to get back on a 
 [alpha to Heroku master...]: https://stackoverflow.com/a/2980050
 [deploy and scale Node.js applications]: https://devcenter.heroku.com/categories/nodejs-support
 [Not currently on any branch]: https://stackoverflow.com/a/4735584
+[Disable SoureceMap - Stackoverflow]: https://stackoverflow.com/a/51984353
+[Disable SoureceMap -  React Docs]: https://create-react-app.dev/docs/advanced-configuration/
