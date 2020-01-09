@@ -3,8 +3,9 @@ LeadsPedia in MERN
 
 # Install and Run Project
     npm install
-    npm run client-install
-    npm run dev
+    cd client
+    npm install
+    npm run dev (first do: cd ..)
 
 ## GitHub Commands:
 1.) First Time - Clone Single Branch: 
@@ -14,8 +15,8 @@ LeadsPedia in MERN
 
 2.) First Time - Update Config
 <!-- Add [--global] only if you want the same config for all repositories -->
-    git config --global user.email "you@example.com"
     git config --global user.name "Your Name"
+    git config --global user.email "you@example.com"
 
 3.) Everytime - Add your changes and commit them
 <!-- Here [.] or [all] can be used to add all files. You can also add specific files/folders -->
@@ -31,35 +32,19 @@ LeadsPedia in MERN
 
 
 
+## How to kill a process running on particular port in Linux?
+    sudo kill -9 `sudo lsof -t -i:3000`
+    More at: https://stackoverflow.com/a/50411366
 
+## Heroku Post Build script
+    https://devcenter.heroku.com/categories/nodejs-support
 
-    
-## Link local Branch to Remote
-<!-- Here "origin" is local branch name and "alpha" is remote branch name -->
-### If you have not committed:
-    git stash
-    git checkout alpha
-    git stash pop
+## How to push different local Git branches to Heroku/master
+    git push heroku +HEAD:master
+    More at: https://stackoverflow.com/a/2980050
 
-### If you have committed and have not changed anything since:
-    git log --oneline -n1 # this will give you the SHA
-    git checkout alpha
-    git merge ${commit-sha}
-
-### If you have committed and then done extra work:
-    git stash
-    git log --oneline -n1 # this will give you the SHA
-    git checkout alpha
-    git merge ${commit-sha}
-    git stash pop
+## Git: “Not currently on any branch.” Is there an easy way to get back on a branch, while keeping the changes?
+    https://stackoverflow.com/a/4735584
 
 ### Push to Link
     git push origin HEAD:origin/alpha
-
-
-## Kill PORTS in UBUNTU (3000|5000)
-sudo kill -9 `sudo lsof -t -i:3000`
-
-<!-- If that doesn't work you could also use $() for command interpolation: -->
-
-sudo kill -9 $(sudo lsof -t -i:3000)
