@@ -37,19 +37,19 @@ LeadsPedia in MERN
 [More on kill process..]
 
 ## Heroku Post Build script
-[https://devcenter.heroku.com/categories/nodejs-support](https://devcenter.heroku.com/categories/nodejs-support)
+Heroku makes it easy to [deploy and scale Node.js applications]. Run any recent version of Node.js. Deploy apps in seconds using dependency caching.
 
 ## How to push different local Git branches to Heroku/master
     git push heroku +HEAD:master
 [alpha to Heroku master...]
 
-## Git: “Not currently on any branch.” Is there an easy way to get back on a branch, while keeping the changes?
-    <https://stackoverflow.com/a/4735584>
-
 ### Push to Link
     git push origin HEAD:origin/alpha
 
+Git: “[Not currently on any branch].” Is there an easy way to get back on a branch, while keeping the changes?
 
 #### References
 [More on kill process..]: https://stackoverflow.com/a/50411366
 [alpha to Heroku master...]: https://stackoverflow.com/a/2980050
+[deploy and scale Node.js applications]: https://devcenter.heroku.com/categories/nodejs-support
+[Not currently on any branch]: https://stackoverflow.com/a/4735584
