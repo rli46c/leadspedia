@@ -33,13 +33,13 @@ LeadsPedia in MERN
 
 
 ## How to kill a process running on particular port in Linux?
-    sudo kill -9 `sudo lsof -t -i:3000` ([More on kill process..])
+    sudo kill -9 `sudo lsof -t -i:3000` | [More on kill process..]
 
 ## Heroku Post Build script
 [https://devcenter.heroku.com/categories/nodejs-support](https://devcenter.heroku.com/categories/nodejs-support)
 
 ## How to push different local Git branches to Heroku/master
-    git push heroku +HEAD:master ([alpha to Heroku master...])
+    git push heroku +HEAD:master | [alpha to Heroku master...]
 
 ## Git: “Not currently on any branch.” Is there an easy way to get back on a branch, while keeping the changes?
     <https://stackoverflow.com/a/4735584>
@@ -48,6 +48,6 @@ LeadsPedia in MERN
     git push origin HEAD:origin/alpha
 
 
-
+#### References
 [More on kill process..]: https://stackoverflow.com/a/50411366
 [alpha to Heroku master...]: https://stackoverflow.com/a/2980050
